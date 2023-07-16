@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        git 'https://github.com/iamsauravsingh7/knowledgehut.git'
+        sh 'git https://github.com/iamsauravsingh7/knowledgehut.git'
       }
     }
 
