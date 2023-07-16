@@ -3,13 +3,13 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        sh 'git https://github.com/iamsauravsingh7/knowledgehut.git'
+        git 'https://github.com/iamsauravsingh7/knowledgehut.git'
       }
     }
 
     stage('Build') {
         steps {
-          sh 'mvnw clean package -Dlicense.skip=true'
+          sh 'cd jpetstore6 && mvnw clean package -Dlicense.skip=true'
       }
     }
 
