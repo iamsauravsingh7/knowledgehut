@@ -7,9 +7,10 @@ pipeline {
       }
     }
 
-  stage('Build') {
-      steps {
-      sh  'mvn clean package'
+    stage('Build') {
+        steps {
+          sh 'cd jeptstore6'
+          sh 'mvn clean package'
       }
     }
 
