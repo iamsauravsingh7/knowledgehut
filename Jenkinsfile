@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
         steps {
-          sh 'cd jpetstore6 && mvn clean package'
+          sh 'mvn clean package'
       }
     }
 
