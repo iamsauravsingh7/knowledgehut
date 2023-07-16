@@ -1,15 +1,21 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('checkout') {
       steps {
-        echo 'Building stage'
+        git 'https://github.com/iamsauravsingh7/knowledgehut.git'
+      }
+    }
+
+  stage('Build') {
+      steps {
+       mvn clean package
       }
     }
 
     stage('Deploy') {
       steps {
-        echo 'Deployment stage'
+        sh 'cp target/jpetstore.war /opt/tomcat/webapps/'
       }
     }
 
