@@ -9,7 +9,7 @@ pipeline {
 
     stage('Build') {
         steps {
-          sh 'cd jpetstore6 && mvnw clean package -Dlicense.skip=true'
+          sh 'mvnw clean package -Dlicense.skip=true'
       }
     }
 
