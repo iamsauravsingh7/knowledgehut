@@ -9,7 +9,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh 'cp jpetstore6/target/jpetstore.war $WORKSPACE'
+        sh 'cp jpetstore6/target/jpetstore.war /var/lib/tomcat/webapps/'
       }
     }
 
