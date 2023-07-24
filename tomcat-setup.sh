@@ -1,7 +1,7 @@
 sudo apt update
 sudo apt install openjdk-17-jdk
 
-java -version
+java --version
 
 sudo useradd -m -d /opt/tomcat -U -s /bin/false tomcat
 
@@ -12,9 +12,8 @@ tar xzf apache-tomcat-9.0.58.tar.gz
 sudo mv apache-tomcat-9.0.58/* /opt/tomcat/
 
 sudo chown -R tomcat:tomcat /opt/tomcat/
-sudo vi /etc/systemd/system/tomcat.service
 
-
+cat <<EOT>> /etc/systemd/system/tomcat.service
 [Unit]
 Description=Tomcat
 After=network.target
@@ -25,7 +24,7 @@ Type=forking
 User=tomcat
 Group=tomcat
 
-Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"
+Environment="JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64"
 Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom"
 Environment="CATALINA_BASE=/opt/tomcat"
 Environment="CATALINA_HOME=/opt/tomcat"
